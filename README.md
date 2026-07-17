@@ -1,5 +1,11 @@
 # 步數編輯器（StepEditor）
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+[![Platform](https://img.shields.io/badge/Platform-iOS-blue.svg)](https://www.apple.com/ios/)
+[![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
+[![iOS](https://img.shields.io/badge/iOS-17%2B-lightgrey.svg)](https://www.apple.com/ios/)
+[![GitHub stars](https://img.shields.io/github/stars/chouhsiang/step-editor?style=social)](https://github.com/chouhsiang/step-editor/stargazers)
+
 把你輸入的步數寫入 iPhone「健康」App（HealthKit）。
 
 開源專案：https://github.com/chouhsiang/step-editor
