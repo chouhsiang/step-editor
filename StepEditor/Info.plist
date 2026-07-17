@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>NSHealthShareUsageDescription</key>
+	<string>需要讀取健康資料，以便確認步數寫入狀態。</string>
+	<key>NSHealthUpdateUsageDescription</key>
+	<string>需要寫入步數到「健康」App，才能同步你輸入的步數。</string>
+	<key>UILaunchScreen</key>
+	<dict/>
+</dict>
+</plist>
