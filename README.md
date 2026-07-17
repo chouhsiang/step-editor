@@ -6,6 +6,10 @@
 [![iOS](https://img.shields.io/badge/iOS-17%2B-lightgrey.svg)](https://www.apple.com/ios/)
 [![GitHub stars](https://img.shields.io/github/stars/chouhsiang/step-editor?style=social)](https://github.com/chouhsiang/step-editor/stargazers)
 
+<p align="center">
+  <img src="docs/app-icon.png" alt="步數編輯器 App Icon" width="128">
+</p>
+
 把你輸入的步數寫入 iPhone「健康」App（HealthKit）。
 
 開源專案：https://github.com/chouhsiang/step-editor
