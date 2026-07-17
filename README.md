@@ -4,6 +4,10 @@
 
 開源專案：https://github.com/chouhsiang/step-editor
 
+<p align="center">
+  <img src="docs/screenshot.png" alt="步數編輯器 App 介面" width="320">
+</p>
+
 ## 功能
 
 - 輸入要新增的步數
