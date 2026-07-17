@@ -1,6 +1,6 @@
 # Xcode
 *.xcuserstate
-xcuserdata/
+**/xcuserdata/
 DerivedData/
 *.hmap
 *.ipa

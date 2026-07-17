@@ -2,6 +2,8 @@
 
 把你輸入的步數寫入 iPhone「健康」App（HealthKit）。
 
+開源專案：https://github.com/chouhsiang/step-editor
+
 ## 功能
 
 - 輸入要新增的步數
@@ -43,3 +45,7 @@ StepEditor/
 ├── Info.plist               # 健康權限說明文字
 └── StepEditor.entitlements  # HealthKit entitlement
 ```
+
+## 授權
+
+本專案採用 [MIT License](LICENSE)。

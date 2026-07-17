@@ -59,6 +59,17 @@ struct ContentView: View {
                 } header: {
                     Text("如何刪除步數")
                 }
+
+                Section {
+                    Link(destination: URL(string: "https://github.com/chouhsiang/step-editor")!) {
+                        Label("GitHub 開源專案", systemImage: "link")
+                    }
+                    Text("本專案為開源軟體，原始碼與說明請見 GitHub。")
+                        .font(.footnote)
+                        .foregroundStyle(.secondary)
+                } header: {
+                    Text("關於")
+                }
             }
             .navigationTitle("步數編輯器")
             .task {
