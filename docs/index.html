@@ -8,62 +8,108 @@
   <link rel="icon" href="app-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,550;9..144,700&family=Sora:wght@400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --ink: #16352f;
-      --muted: #4a6a62;
-      --bg: #e8f5f0;
-      --bg-deep: #b8e0d2;
-      --accent: #1f8a72;
-      --accent-dark: #146554;
-      --surface: rgba(255, 255, 255, 0.55);
-      --line: rgba(22, 53, 47, 0.12);
-      --max: 1080px;
+      --ink: #14342e;
+      --muted: #547068;
+      --paper: #f4faf7;
+      --mist: #dff3eb;
+      --leaf: #1f8a72;
+      --leaf-deep: #13624f;
+      --card: #ffffff;
+      --line: rgba(20, 52, 46, 0.1);
+      --max: 1120px;
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
-
     html { scroll-behavior: smooth; }
 
     body {
       font-family: "Sora", sans-serif;
       color: var(--ink);
       background:
-        radial-gradient(1200px 600px at 10% -10%, #d9f4ea 0%, transparent 55%),
-        radial-gradient(900px 500px at 100% 0%, #c5ebe0 0%, transparent 50%),
-        linear-gradient(180deg, #f3fbf8 0%, var(--bg) 40%, #dff0ea 100%);
-      min-height: 100vh;
-      line-height: 1.6;
+        radial-gradient(900px 480px at 85% -5%, #c9ebe0 0%, transparent 55%),
+        radial-gradient(700px 420px at -5% 15%, #e4f7f0 0%, transparent 50%),
+        linear-gradient(180deg, #f7fcfa 0%, var(--paper) 35%, #e8f4ef 100%);
+      line-height: 1.65;
+      overflow-x: hidden;
     }
 
-    a { color: inherit; }
+    a { color: inherit; text-decoration: none; }
+    img { display: block; max-width: 100%; height: auto; }
 
     .wrap {
       width: min(100% - 2.5rem, var(--max));
       margin-inline: auto;
     }
 
-    /* Hero: one composition */
-    .hero {
-      min-height: 100svh;
-      display: grid;
-      align-items: end;
-      padding: 2rem 0 3rem;
-      position: relative;
-      overflow: hidden;
+    /* Top bar */
+    .nav {
+      position: absolute;
+      inset: 0 0 auto;
+      z-index: 5;
+      padding: 1.25rem 0;
     }
 
-    .hero::before {
-      content: "";
+    .nav-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.65rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-brand img {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .nav-link {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--leaf-deep);
+      padding: 0.55rem 0.9rem;
+      border-radius: 0.65rem;
+      border: 1.5px solid transparent;
+      transition: background 0.2s ease, border-color 0.2s ease;
+    }
+
+    .nav-link:hover {
+      background: rgba(255, 255, 255, 0.55);
+      border-color: var(--line);
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      min-height: 100svh;
+      padding: 7rem 0 4rem;
+      display: grid;
+      align-items: center;
+    }
+
+    .hero-bg {
       position: absolute;
       inset: 0;
       background:
-        linear-gradient(115deg, rgba(31, 138, 114, 0.12), transparent 45%),
-        url("app-icon.png") right -8% center / min(52vw, 420px) no-repeat;
-      opacity: 0.18;
+        linear-gradient(120deg, rgba(31, 138, 114, 0.08), transparent 42%),
+        linear-gradient(180deg, transparent 60%, rgba(228, 247, 240, 0.85));
       pointer-events: none;
-      filter: blur(0.5px);
     }
 
     .hero-grid {
@@ -71,287 +117,412 @@
       z-index: 1;
       display: grid;
       grid-template-columns: 1.05fr 0.95fr;
-      gap: 2.5rem;
-      align-items: end;
+      gap: clamp(2rem, 5vw, 4rem);
+      align-items: center;
     }
 
     .brand {
       font-family: "Fraunces", serif;
-      font-size: clamp(3.2rem, 8vw, 5.8rem);
+      font-size: clamp(3.4rem, 8.5vw, 6rem);
       font-weight: 700;
-      letter-spacing: -0.04em;
-      line-height: 0.95;
-      color: var(--ink);
-      margin-bottom: 1.25rem;
-    }
-
-    .brand span {
-      display: inline-block;
-    }
-
-    .brand-mark {
-      width: 1.05em;
-      height: 1.05em;
-      vertical-align: -0.12em;
-      margin-right: 0.18em;
-      border-radius: 22%;
+      letter-spacing: -0.045em;
+      line-height: 0.94;
+      margin-bottom: 1.15rem;
+      animation: fade-up 0.75s ease both;
     }
 
     .lede {
-      font-size: clamp(1.05rem, 2.2vw, 1.3rem);
+      font-size: clamp(1.05rem, 2.1vw, 1.28rem);
       color: var(--muted);
-      max-width: 28ch;
-      margin-bottom: 1.75rem;
+      max-width: 26ch;
       font-weight: 500;
+      margin-bottom: 1.8rem;
+      animation: fade-up 0.85s ease 0.06s both;
     }
 
     .cta-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 0.85rem;
-      align-items: center;
+      gap: 0.8rem;
+      animation: fade-up 0.9s ease 0.12s both;
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      gap: 0.55rem;
-      text-decoration: none;
+      justify-content: center;
+      gap: 0.5rem;
       font-weight: 600;
-      font-size: 0.98rem;
-      padding: 0.85rem 1.25rem;
-      border-radius: 0.7rem;
-      transition: transform 0.2s ease, background 0.2s ease, color 0.2s ease;
+      font-size: 0.96rem;
+      padding: 0.9rem 1.3rem;
+      border-radius: 0.85rem;
+      transition: transform 0.2s ease, background 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .btn:hover { transform: translateY(-1px); }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
-      background: var(--accent);
+      background: var(--leaf);
       color: #fff;
     }
 
-    .btn-primary:hover { background: var(--accent-dark); }
+    .btn-primary:hover {
+      background: var(--leaf-deep);
+      box-shadow: 0 10px 24px rgba(19, 98, 79, 0.22);
+    }
 
     .btn-ghost {
-      background: transparent;
-      color: var(--ink);
+      background: rgba(255, 255, 255, 0.7);
       border: 1.5px solid var(--line);
+      color: var(--ink);
+      backdrop-filter: blur(8px);
     }
 
-    .btn-ghost:hover {
-      background: var(--surface);
-    }
-
-    .hero-visual {
+    .phone {
       justify-self: end;
-      width: min(100%, 340px);
+      width: min(100%, 320px);
+      animation: rise 1s ease 0.1s both;
     }
 
-    .hero-visual img {
+    .phone img {
       width: 100%;
-      height: auto;
-      display: block;
-      filter: drop-shadow(0 24px 40px rgba(20, 70, 58, 0.18));
-      animation: rise 0.9s ease-out both;
+      filter: drop-shadow(0 28px 50px rgba(16, 70, 56, 0.22));
     }
 
-    .hero-copy {
-      animation: fade-up 0.8s ease-out both;
-    }
-
-    @keyframes fade-up {
-      from { opacity: 0; transform: translateY(18px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes rise {
-      from { opacity: 0; transform: translateY(28px) scale(0.98); }
-      to { opacity: 1; transform: translateY(0) scale(1); }
-    }
-
+    /* Sections */
     section {
-      padding: 4.5rem 0;
+      padding: clamp(4rem, 8vw, 6.5rem) 0;
+    }
+
+    .section-head {
+      margin-bottom: 2.4rem;
+      max-width: 36rem;
     }
 
     .section-title {
       font-family: "Fraunces", serif;
-      font-size: clamp(1.8rem, 4vw, 2.5rem);
-      letter-spacing: -0.03em;
-      margin-bottom: 0.65rem;
+      font-size: clamp(2rem, 4.5vw, 3rem);
+      letter-spacing: -0.035em;
+      line-height: 1.1;
+      margin-bottom: 0.7rem;
     }
 
     .section-lead {
       color: var(--muted);
-      max-width: 42ch;
-      margin-bottom: 2rem;
-    }
-
-    .feature-list {
-      list-style: none;
-      display: grid;
-      gap: 1rem;
-      max-width: 36rem;
-    }
-
-    .feature-list li {
-      padding: 0.35rem 0 0.35rem 1.35rem;
-      position: relative;
       font-size: 1.05rem;
       font-weight: 500;
     }
 
-    .feature-list li::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      top: 0.78rem;
-      width: 0.55rem;
-      height: 0.55rem;
-      border-radius: 50%;
-      background: var(--accent);
-    }
-
-    .steps-flow {
+    /* Feature cards */
+    .feature-grid {
       display: grid;
-      gap: 1.25rem;
-      counter-reset: step;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
     }
 
-    .steps-flow p {
-      position: relative;
-      padding-left: 3rem;
-      min-height: 2.4rem;
-      font-weight: 500;
+    .feature-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 1.35rem;
+      padding: 1.45rem 1.4rem 1.55rem;
+      min-height: 11.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+      box-shadow: 0 8px 28px rgba(20, 52, 46, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
     }
 
-    .steps-flow p::before {
-      counter-increment: step;
-      content: counter(step);
-      position: absolute;
-      left: 0;
-      top: 0;
-      width: 2rem;
-      height: 2rem;
-      border-radius: 50%;
+    .feature-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(31, 138, 114, 0.28);
+      box-shadow: 0 16px 36px rgba(20, 52, 46, 0.08);
+    }
+
+    .feature-icon {
+      width: 2.6rem;
+      height: 2.6rem;
+      border-radius: 0.85rem;
       display: grid;
       place-items: center;
-      background: var(--bg-deep);
-      color: var(--accent-dark);
-      font-size: 0.9rem;
+      background: linear-gradient(145deg, #dff7ef, #c8ebd9);
+      color: var(--leaf-deep);
+      font-family: "Fraunces", serif;
+      font-weight: 700;
+      font-size: 1.05rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.12rem;
+      letter-spacing: -0.02em;
       font-weight: 700;
     }
 
-    .oss {
-      border-top: 1px solid var(--line);
-      border-bottom: 1px solid var(--line);
+    .feature-card p {
+      color: var(--muted);
+      font-size: 0.95rem;
+      font-weight: 500;
     }
 
-    .oss .cta-row { margin-top: 1.5rem; }
+    /* Start section */
+    .start {
+      background:
+        linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent),
+        radial-gradient(600px 280px at 20% 0%, rgba(184, 224, 210, 0.55), transparent 70%);
+    }
+
+    .start-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.15rem;
+      counter-reset: step;
+    }
+
+    .start-card {
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--line);
+      border-radius: 1.35rem;
+      padding: 1.5rem 1.35rem;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 8px 24px rgba(20, 52, 46, 0.04);
+    }
+
+    .start-card::before {
+      counter-increment: step;
+      content: "0" counter(step);
+      display: block;
+      font-family: "Fraunces", serif;
+      font-size: 1.7rem;
+      font-weight: 700;
+      color: var(--leaf);
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .start-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 0.45rem;
+      letter-spacing: -0.02em;
+    }
+
+    .start-card p {
+      color: var(--muted);
+      font-size: 0.94rem;
+      font-weight: 500;
+    }
+
+    /* Open source band */
+    .oss {
+      position: relative;
+    }
+
+    .oss-panel {
+      border-radius: 1.8rem;
+      padding: clamp(2rem, 5vw, 3.2rem);
+      background:
+        linear-gradient(135deg, #1f8a72 0%, #14765f 48%, #0f5a4a 100%);
+      color: #f4fffb;
+      display: grid;
+      grid-template-columns: 1.4fr auto;
+      gap: 1.5rem;
+      align-items: center;
+      box-shadow: 0 20px 48px rgba(15, 90, 74, 0.28);
+    }
+
+    .oss-panel .section-title {
+      color: #fff;
+      margin-bottom: 0.55rem;
+    }
+
+    .oss-panel .section-lead {
+      color: rgba(244, 255, 251, 0.86);
+      margin: 0;
+      max-width: 40ch;
+    }
+
+    .oss-panel .btn-primary {
+      background: #fff;
+      color: var(--leaf-deep);
+    }
+
+    .oss-panel .btn-primary:hover {
+      background: #eefaf5;
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+    }
 
     footer {
-      padding: 2.5rem 0 3rem;
+      padding: 2.4rem 0 3rem;
       color: var(--muted);
       font-size: 0.92rem;
+      border-top: 1px solid var(--line);
     }
 
     footer a {
-      color: var(--accent-dark);
+      color: var(--leaf-deep);
       font-weight: 600;
-      text-decoration: none;
     }
 
     footer a:hover { text-decoration: underline; }
 
-    @media (max-width: 820px) {
-      .hero-grid {
-        grid-template-columns: 1fr;
-        align-items: start;
-        gap: 2rem;
+    @keyframes fade-up {
+      from { opacity: 0; transform: translateY(16px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes rise {
+      from { opacity: 0; transform: translateY(30px) scale(0.985); }
+      to { opacity: 1; transform: translateY(0) scale(1); }
+    }
+
+    @media (max-width: 900px) {
+      .feature-grid,
+      .start-grid {
+        grid-template-columns: 1fr 1fr;
       }
 
+      .oss-panel {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 720px) {
       .hero {
         min-height: auto;
-        padding-top: 3rem;
-        padding-bottom: 2.5rem;
+        padding: 6rem 0 3rem;
       }
 
-      .hero::before {
-        background:
-          linear-gradient(180deg, rgba(31, 138, 114, 0.1), transparent 55%),
-          url("app-icon.png") 110% -5% / 220px no-repeat;
-        opacity: 0.22;
+      .hero-grid {
+        grid-template-columns: 1fr;
+        text-align: left;
       }
 
-      .hero-visual {
+      .phone {
         justify-self: center;
-        width: min(100%, 280px);
         order: -1;
+        width: min(100%, 260px);
       }
 
-      .lede { max-width: 36ch; }
+      .lede { max-width: 34ch; }
+
+      .feature-grid,
+      .start-grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
 <body>
-  <header class="hero">
+  <nav class="nav" aria-label="主導覽">
+    <div class="wrap nav-inner">
+      <a class="nav-brand" href="#top">
+        <img src="app-icon.png" alt="">
+        Step Patch
+      </a>
+      <div class="nav-links">
+        <a class="nav-link" href="https://blog.chouhsiang.tw/" target="_blank" rel="noopener noreferrer">作者部落格</a>
+        <a class="nav-link" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">GitHub</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
-      <div class="hero-copy">
-        <h1 class="brand">
-          <img class="brand-mark" src="app-icon.png" alt="">
-          <span>Step Patch</span>
-        </h1>
+      <div>
+        <h1 class="brand">Step Patch</h1>
         <p class="lede">把你輸入的步數，寫進 iPhone「健康」App。</p>
         <div class="cta-row">
           <a class="btn btn-primary" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">
-            在 GitHub 查看專案
+            查看 GitHub 專案
           </a>
-          <a class="btn btn-ghost" href="https://github.com/chouhsiang/step-editor#readme" target="_blank" rel="noopener noreferrer">
-            安裝說明
-          </a>
+          <a class="btn btn-ghost" href="#features">了解功能</a>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="screenshot.png" alt="Step Patch App 介面預覽" width="340" height="680">
+      <div class="phone">
+        <img src="screenshot.png" alt="Step Patch App 介面" width="320" height="640">
       </div>
     </div>
   </header>
 
   <main>
-    <section>
+    <section id="features">
       <div class="wrap">
-        <h2 class="section-title">它能做什麼</h2>
-        <p class="section-lead">用最簡單的流程補上步數，並在 App 內查看與管理紀錄。</p>
-        <ul class="feature-list">
-          <li>快速選擇或手動輸入要新增的步數</li>
-          <li>指定紀錄時間後寫入「健康」</li>
-          <li>查看每日統計與當日明細</li>
-          <li>刪除由 Step Patch 寫入的紀錄</li>
-          <li>支援繁體中文與英文</li>
-        </ul>
+        <div class="section-head">
+          <h2 class="section-title">專為補步數而生</h2>
+          <p class="section-lead">從輸入、同步到查閱紀錄，流程清楚，介面乾淨。</p>
+        </div>
+
+        <div class="feature-grid">
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">01</div>
+            <h3>快速新增</h3>
+            <p>用快捷按鈕或手動輸入步數，一鍵寫入「健康」App。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">02</div>
+            <h3>指定時間</h3>
+            <p>可選擇紀錄日期與時間，讓步數對應到正確時段。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">03</div>
+            <h3>每日統計</h3>
+            <p>從健康資料讀取近況，用列表快速掌握每天總步數。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">04</div>
+            <h3>明細與刪除</h3>
+            <p>點進單日查看每筆紀錄，並可刪除本 App 寫入的資料。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">05</div>
+            <h3>中英雙語</h3>
+            <p>依系統語言自動切換繁體中文與英文介面。</p>
+          </article>
+
+          <article class="feature-card">
+            <div class="feature-icon" aria-hidden="true">06</div>
+            <h3>開源授權</h3>
+            <p>採 MIT License，歡迎 fork、修改與分享給更多人。</p>
+          </article>
+        </div>
       </div>
     </section>
 
-    <section>
+    <section class="start" id="start">
       <div class="wrap">
-        <h2 class="section-title">怎麼開始</h2>
-        <p class="section-lead">用 Xcode 開啟專案，簽章後裝到實體 iPhone 即可。</p>
-        <div class="steps-flow">
-          <p>Clone 專案並用 Xcode 開啟 <code>StepEditor.xcodeproj</code></p>
-          <p>選擇你的 Team，確認已啟用 HealthKit</p>
-          <p>連上 iPhone 後 Run，允許步數寫入權限</p>
+        <div class="section-head">
+          <h2 class="section-title">開始使用</h2>
+          <p class="section-lead">用 Xcode 開啟專案，裝到實體 iPhone 就能同步到「健康」。</p>
+        </div>
+
+        <div class="start-grid">
+          <article class="start-card">
+            <h3>開啟專案</h3>
+            <p>Clone 後用 Xcode 開啟 <strong>StepEditor.xcodeproj</strong>。</p>
+          </article>
+          <article class="start-card">
+            <h3>設定簽章</h3>
+            <p>選擇你的 Team，並確認已啟用 HealthKit。</p>
+          </article>
+          <article class="start-card">
+            <h3>安裝到手機</h3>
+            <p>連上 iPhone 後按 Run，允許步數寫入權限即可。</p>
+          </article>
         </div>
       </div>
     </section>
 
     <section class="oss">
       <div class="wrap">
-        <h2 class="section-title">開源</h2>
-        <p class="section-lead">
-          Step Patch 採 MIT License，歡迎 fork、修改與分享。
-          原始碼與說明都在 GitHub。
-        </p>
-        <div class="cta-row">
+        <div class="oss-panel">
+          <div>
+            <h2 class="section-title">在 GitHub 開源</h2>
+            <p class="section-lead">原始碼、說明與授權都公開，歡迎一起改進 Step Patch。</p>
+          </div>
           <a class="btn btn-primary" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">
             github.com/chouhsiang/step-editor
           </a>
@@ -363,7 +534,9 @@
   <footer>
     <div class="wrap">
       <p>
-        Step Patch · MIT License ·
+        Step Patch · by
+        <a href="https://blog.chouhsiang.tw/" target="_blank" rel="noopener noreferrer">周詳 Sean Chou</a>
+        · MIT License ·
         <a href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">GitHub</a>
       </p>
     </div>
