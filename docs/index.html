@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Step Patch — 把步數寫入「健康」App</title>
-  <meta name="description" content="Step Patch 是開源 iOS App，可手動新增步數並同步到 iPhone「健康」App。">
+  <title>Step Patch</title>
+  <meta name="description" content="Step Patch is an open-source iOS app that adds steps to Apple Health.">
   <link rel="icon" href="app-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,6 @@
       --ink: #14342e;
       --muted: #547068;
       --paper: #f4faf7;
-      --mist: #dff3eb;
       --leaf: #1f8a72;
       --leaf-deep: #13624f;
       --card: #ffffff;
@@ -38,13 +37,13 @@
 
     a { color: inherit; text-decoration: none; }
     img { display: block; max-width: 100%; height: auto; }
+    button { font: inherit; }
 
     .wrap {
       width: min(100% - 2.5rem, var(--max));
       margin-inline: auto;
     }
 
-    /* Top bar */
     .nav {
       position: absolute;
       inset: 0 0 auto;
@@ -62,39 +61,46 @@
     .nav-brand {
       display: inline-flex;
       align-items: center;
-      gap: 0.65rem;
+      gap: 0.8rem;
+      font-family: "Fraunces", serif;
+      font-size: clamp(1.45rem, 3.5vw, 1.85rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
     .nav-brand img {
-      width: 34px;
-      height: 34px;
-      border-radius: 8px;
+      width: 48px;
+      height: 48px;
+      border-radius: 11px;
     }
 
-    .nav-links {
-      display: flex;
+    .lang-switch {
+      display: inline-flex;
       align-items: center;
-      gap: 0.35rem;
+      padding: 0.28rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.72);
+      border: 1.5px solid var(--line);
+      backdrop-filter: blur(8px);
     }
 
-    .nav-link {
-      font-size: 0.92rem;
+    .lang-switch button {
+      border: 0;
+      background: transparent;
+      color: var(--muted);
+      cursor: pointer;
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.88rem;
       font-weight: 600;
-      color: var(--leaf-deep);
-      padding: 0.55rem 0.9rem;
-      border-radius: 0.65rem;
-      border: 1.5px solid transparent;
-      transition: background 0.2s ease, border-color 0.2s ease;
+      transition: background 0.2s ease, color 0.2s ease;
     }
 
-    .nav-link:hover {
-      background: rgba(255, 255, 255, 0.55);
-      border-color: var(--line);
+    .lang-switch button.is-active {
+      background: var(--leaf);
+      color: #fff;
     }
 
-    /* Hero */
     .hero {
       position: relative;
       min-height: 100svh;
@@ -127,14 +133,31 @@
       font-weight: 700;
       letter-spacing: -0.045em;
       line-height: 0.94;
-      margin-bottom: 1.15rem;
+      margin-bottom: 1rem;
       animation: fade-up 0.75s ease both;
+    }
+
+    .platform-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+      padding: 0.4rem 0.85rem;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1.5px solid var(--line);
+      color: var(--leaf-deep);
+      font-size: 0.88rem;
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      animation: fade-up 0.7s ease both;
+      backdrop-filter: blur(8px);
     }
 
     .lede {
       font-size: clamp(1.05rem, 2.1vw, 1.28rem);
       color: var(--muted);
-      max-width: 26ch;
+      max-width: 32ch;
       font-weight: 500;
       margin-bottom: 1.8rem;
       animation: fade-up 0.85s ease 0.06s both;
@@ -189,7 +212,6 @@
       filter: drop-shadow(0 28px 50px rgba(16, 70, 56, 0.22));
     }
 
-    /* Sections */
     section {
       padding: clamp(4rem, 8vw, 6.5rem) 0;
     }
@@ -213,7 +235,6 @@
       font-weight: 500;
     }
 
-    /* Feature cards */
     .feature-grid {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
@@ -264,7 +285,6 @@
       font-weight: 500;
     }
 
-    /* Start section */
     .start {
       background:
         linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent),
@@ -311,16 +331,10 @@
       font-weight: 500;
     }
 
-    /* Open source band */
-    .oss {
-      position: relative;
-    }
-
     .oss-panel {
       border-radius: 1.8rem;
       padding: clamp(2rem, 5vw, 3.2rem);
-      background:
-        linear-gradient(135deg, #1f8a72 0%, #14765f 48%, #0f5a4a 100%);
+      background: linear-gradient(135deg, #1f8a72 0%, #14765f 48%, #0f5a4a 100%);
       color: #f4fffb;
       display: grid;
       grid-template-columns: 1.4fr auto;
@@ -337,7 +351,7 @@
     .oss-panel .section-lead {
       color: rgba(244, 255, 251, 0.86);
       margin: 0;
-      max-width: 40ch;
+      max-width: 42ch;
     }
 
     .oss-panel .btn-primary {
@@ -376,13 +390,8 @@
 
     @media (max-width: 900px) {
       .feature-grid,
-      .start-grid {
-        grid-template-columns: 1fr 1fr;
-      }
-
-      .oss-panel {
-        grid-template-columns: 1fr;
-      }
+      .start-grid { grid-template-columns: 1fr 1fr; }
+      .oss-panel { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 720px) {
@@ -391,10 +400,7 @@
         padding: 6rem 0 3rem;
       }
 
-      .hero-grid {
-        grid-template-columns: 1fr;
-        text-align: left;
-      }
+      .hero-grid { grid-template-columns: 1fr; }
 
       .phone {
         justify-self: center;
@@ -405,22 +411,20 @@
       .lede { max-width: 34ch; }
 
       .feature-grid,
-      .start-grid {
-        grid-template-columns: 1fr;
-      }
+      .start-grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav" aria-label="主導覽">
+  <nav class="nav" aria-label="Main">
     <div class="wrap nav-inner">
       <a class="nav-brand" href="#top">
         <img src="app-icon.png" alt="">
         Step Patch
       </a>
-      <div class="nav-links">
-        <a class="nav-link" href="https://blog.chouhsiang.tw/" target="_blank" rel="noopener noreferrer">作者部落格</a>
-        <a class="nav-link" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">GitHub</a>
+      <div class="lang-switch" role="group" aria-label="Language">
+        <button type="button" data-lang="zh-Hant" class="is-active">中文</button>
+        <button type="button" data-lang="en">EN</button>
       </div>
     </div>
   </nav>
@@ -430,16 +434,15 @@
     <div class="wrap hero-grid">
       <div>
         <h1 class="brand">Step Patch</h1>
-        <p class="lede">把你輸入的步數，寫進 iPhone「健康」App。</p>
+        <p class="platform-badge" data-i18n="hero.badge"></p>
+        <p class="lede" data-i18n="hero.lede"></p>
         <div class="cta-row">
-          <a class="btn btn-primary" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">
-            查看 GitHub 專案
-          </a>
-          <a class="btn btn-ghost" href="#features">了解功能</a>
+          <a class="btn btn-primary" href="https://github.com/chouhsiang/step-patch" target="_blank" rel="noopener noreferrer" data-i18n="hero.ctaPrimary"></a>
+          <a class="btn btn-ghost" href="#features" data-i18n="hero.ctaSecondary"></a>
         </div>
       </div>
       <div class="phone">
-        <img src="screenshot.png" alt="Step Patch App 介面" width="320" height="640">
+        <img src="screenshot.png" alt="Step Patch app screenshot" width="320" height="640" data-i18n-alt="hero.screenshotAlt">
       </div>
     </div>
   </header>
@@ -448,45 +451,40 @@
     <section id="features">
       <div class="wrap">
         <div class="section-head">
-          <h2 class="section-title">專為補步數而生</h2>
-          <p class="section-lead">從輸入、同步到查閱紀錄，流程清楚，介面乾淨。</p>
+          <h2 class="section-title" data-i18n="features.title"></h2>
+          <p class="section-lead" data-i18n="features.lead"></p>
         </div>
 
         <div class="feature-grid">
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">01</div>
-            <h3>快速新增</h3>
-            <p>用快捷按鈕或手動輸入步數，一鍵寫入「健康」App。</p>
+            <h3 data-i18n="features.f1.title"></h3>
+            <p data-i18n="features.f1.body"></p>
           </article>
-
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">02</div>
-            <h3>指定時間</h3>
-            <p>可選擇紀錄日期與時間，讓步數對應到正確時段。</p>
+            <h3 data-i18n="features.f2.title"></h3>
+            <p data-i18n="features.f2.body"></p>
           </article>
-
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">03</div>
-            <h3>每日統計</h3>
-            <p>從健康資料讀取近況，用列表快速掌握每天總步數。</p>
+            <h3 data-i18n="features.f3.title"></h3>
+            <p data-i18n="features.f3.body"></p>
           </article>
-
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">04</div>
-            <h3>明細與刪除</h3>
-            <p>點進單日查看每筆紀錄，並可刪除本 App 寫入的資料。</p>
+            <h3 data-i18n="features.f4.title"></h3>
+            <p data-i18n="features.f4.body"></p>
           </article>
-
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">05</div>
-            <h3>中英雙語</h3>
-            <p>依系統語言自動切換繁體中文與英文介面。</p>
+            <h3 data-i18n="features.f5.title"></h3>
+            <p data-i18n="features.f5.body"></p>
           </article>
-
           <article class="feature-card">
             <div class="feature-icon" aria-hidden="true">06</div>
-            <h3>開源授權</h3>
-            <p>採 MIT License，歡迎 fork、修改與分享給更多人。</p>
+            <h3 data-i18n="features.f6.title"></h3>
+            <p data-i18n="features.f6.body"></p>
           </article>
         </div>
       </div>
@@ -495,22 +493,22 @@
     <section class="start" id="start">
       <div class="wrap">
         <div class="section-head">
-          <h2 class="section-title">開始使用</h2>
-          <p class="section-lead">用 Xcode 開啟專案，裝到實體 iPhone 就能同步到「健康」。</p>
+          <h2 class="section-title" data-i18n="start.title"></h2>
+          <p class="section-lead" data-i18n="start.lead"></p>
         </div>
 
         <div class="start-grid">
           <article class="start-card">
-            <h3>開啟專案</h3>
-            <p>Clone 後用 Xcode 開啟 <strong>StepEditor.xcodeproj</strong>。</p>
+            <h3 data-i18n="start.s1.title"></h3>
+            <p data-i18n-html="start.s1.body"></p>
           </article>
           <article class="start-card">
-            <h3>設定簽章</h3>
-            <p>選擇你的 Team，並確認已啟用 HealthKit。</p>
+            <h3 data-i18n="start.s2.title"></h3>
+            <p data-i18n="start.s2.body"></p>
           </article>
           <article class="start-card">
-            <h3>安裝到手機</h3>
-            <p>連上 iPhone 後按 Run，允許步數寫入權限即可。</p>
+            <h3 data-i18n="start.s3.title"></h3>
+            <p data-i18n="start.s3.body"></p>
           </article>
         </div>
       </div>
@@ -520,11 +518,11 @@
       <div class="wrap">
         <div class="oss-panel">
           <div>
-            <h2 class="section-title">在 GitHub 開源</h2>
-            <p class="section-lead">原始碼、說明與授權都公開，歡迎一起改進 Step Patch。</p>
+            <h2 class="section-title" data-i18n="oss.title"></h2>
+            <p class="section-lead" data-i18n="oss.lead"></p>
           </div>
-          <a class="btn btn-primary" href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">
-            github.com/chouhsiang/step-editor
+          <a class="btn btn-primary" href="https://github.com/chouhsiang/step-patch" target="_blank" rel="noopener noreferrer">
+            github.com/chouhsiang/step-patch
           </a>
         </div>
       </div>
@@ -534,12 +532,128 @@
   <footer>
     <div class="wrap">
       <p>
-        Step Patch · by
+        © 2026 Step Patch · by
         <a href="https://blog.chouhsiang.tw/" target="_blank" rel="noopener noreferrer">周詳 Sean Chou</a>
         · MIT License ·
-        <a href="https://github.com/chouhsiang/step-editor" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <a href="https://github.com/chouhsiang/step-patch" target="_blank" rel="noopener noreferrer">GitHub</a>
       </p>
     </div>
   </footer>
+
+  <script>
+    const messages = {
+      "zh-Hant": {
+        "meta.title": "Step Patch — iOS App，把步數寫入「健康」",
+        "meta.description": "Step Patch 是開源 iOS App，可手動新增步數並同步到 iPhone「健康」App。",
+        "hero.badge": "iOS App",
+        "hero.lede": "開源 iOS App，把你輸入的步數寫進 iPhone「健康」App。",
+        "hero.ctaPrimary": "查看 GitHub 專案",
+        "hero.ctaSecondary": "了解功能",
+        "hero.screenshotAlt": "Step Patch App 介面",
+        "features.title": "專為補步數而生",
+        "features.lead": "這是一款 iOS App：從輸入、同步到查閱紀錄，流程清楚，介面乾淨。",
+        "features.f1.title": "快速新增",
+        "features.f1.body": "用快捷按鈕或手動輸入步數，一鍵寫入「健康」App。",
+        "features.f2.title": "指定時間",
+        "features.f2.body": "可選擇紀錄日期與時間，讓步數對應到正確時段。",
+        "features.f3.title": "每日統計",
+        "features.f3.body": "從健康資料讀取近況，用列表快速掌握每天總步數。",
+        "features.f4.title": "明細與刪除",
+        "features.f4.body": "點進單日查看每筆紀錄，並可刪除本 App 寫入的資料。",
+        "features.f5.title": "中英雙語",
+        "features.f5.body": "依系統語言自動切換繁體中文與英文介面。",
+        "features.f6.title": "開源授權",
+        "features.f6.body": "採 MIT License，歡迎 fork、修改與分享給更多人。",
+        "start.title": "開始使用",
+        "start.lead": "用 Xcode 開啟專案，裝到實體 iPhone 就能同步到「健康」。",
+        "start.s1.title": "開啟專案",
+        "start.s1.body": "Clone 後用 Xcode 開啟 <strong>StepEditor.xcodeproj</strong>。",
+        "start.s2.title": "設定簽章",
+        "start.s2.body": "選擇你的 Team，並確認已啟用 HealthKit。",
+        "start.s3.title": "安裝到手機",
+        "start.s3.body": "連上 iPhone 後按 Run，允許步數寫入權限即可。",
+        "oss.title": "在 GitHub 開源",
+        "oss.lead": "原始碼、說明與授權都公開，歡迎一起改進 Step Patch。"
+      },
+      en: {
+        "meta.title": "Step Patch — iOS app for Apple Health steps",
+        "meta.description": "Step Patch is an open-source iOS app that lets you manually add steps to the Health app.",
+        "hero.badge": "iOS App",
+        "hero.lede": "An open-source iOS app that writes the steps you enter into the iPhone Health app.",
+        "hero.ctaPrimary": "View on GitHub",
+        "hero.ctaSecondary": "See features",
+        "hero.screenshotAlt": "Step Patch app screenshot",
+        "features.title": "Built for patching steps",
+        "features.lead": "This is an iOS app: from adding and syncing to reviewing history, the flow stays simple and clear.",
+        "features.f1.title": "Quick add",
+        "features.f1.body": "Use presets or type a number, then write steps into the Health app in one tap.",
+        "features.f2.title": "Choose a time",
+        "features.f2.body": "Pick the date and time so each entry lands in the right moment.",
+        "features.f3.title": "Daily totals",
+        "features.f3.body": "Read recent Health data and browse daily step totals at a glance.",
+        "features.f4.title": "Details & delete",
+        "features.f4.body": "Open a day to inspect each sample and delete records written by this app.",
+        "features.f5.title": "Chinese & English",
+        "features.f5.body": "The app UI follows the system language for Traditional Chinese and English.",
+        "features.f6.title": "Open source",
+        "features.f6.body": "MIT licensed. Fork it, improve it, and share it freely.",
+        "start.title": "Get started",
+        "start.lead": "Open the project in Xcode, install it on a physical iPhone, and sync to Health.",
+        "start.s1.title": "Open the project",
+        "start.s1.body": "Clone the repo and open <strong>StepEditor.xcodeproj</strong> in Xcode.",
+        "start.s2.title": "Set up signing",
+        "start.s2.body": "Choose your Team and confirm HealthKit is enabled.",
+        "start.s3.title": "Install on iPhone",
+        "start.s3.body": "Connect your iPhone, press Run, and allow write access for steps.",
+        "oss.title": "Open source on GitHub",
+        "oss.lead": "Source code, docs, and license are public. Help improve Step Patch."
+      }
+    };
+
+    const storageKey = "step-patch-lang";
+
+    function resolveLang() {
+      const saved = localStorage.getItem(storageKey);
+      if (saved === "en" || saved === "zh-Hant") return saved;
+      const browser = (navigator.language || "zh-Hant").toLowerCase();
+      return browser.startsWith("zh") ? "zh-Hant" : "en";
+    }
+
+    function applyLang(lang) {
+      const dict = messages[lang] || messages["zh-Hant"];
+      document.documentElement.lang = lang;
+
+      document.title = dict["meta.title"];
+      const description = document.querySelector('meta[name="description"]');
+      if (description) description.setAttribute("content", dict["meta.description"]);
+
+      document.querySelectorAll("[data-i18n]").forEach((el) => {
+        const key = el.getAttribute("data-i18n");
+        if (dict[key] != null) el.textContent = dict[key];
+      });
+
+      document.querySelectorAll("[data-i18n-html]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-html");
+        if (dict[key] != null) el.innerHTML = dict[key];
+      });
+
+      document.querySelectorAll("[data-i18n-alt]").forEach((el) => {
+        const key = el.getAttribute("data-i18n-alt");
+        if (dict[key] != null) el.setAttribute("alt", dict[key]);
+      });
+
+      document.querySelectorAll(".lang-switch button").forEach((btn) => {
+        btn.classList.toggle("is-active", btn.getAttribute("data-lang") === lang);
+      });
+
+      localStorage.setItem(storageKey, lang);
+    }
+
+    document.querySelectorAll(".lang-switch button").forEach((btn) => {
+      btn.addEventListener("click", () => applyLang(btn.getAttribute("data-lang")));
+    });
+
+    applyLang(resolveLang());
+  </script>
 </body>
 </html>

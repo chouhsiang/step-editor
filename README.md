@@ -4,7 +4,7 @@
 [![Platform](https://img.shields.io/badge/Platform-iOS-blue.svg)](https://www.apple.com/ios/)
 [![Swift](https://img.shields.io/badge/Swift-5.0-orange.svg)](https://swift.org)
 [![iOS](https://img.shields.io/badge/iOS-17%2B-lightgrey.svg)](https://www.apple.com/ios/)
-[![GitHub stars](https://img.shields.io/github/stars/chouhsiang/step-editor?style=social)](https://github.com/chouhsiang/step-editor/stargazers)
+[![GitHub stars](https://img.shields.io/github/stars/chouhsiang/step-patch?style=social)](https://github.com/chouhsiang/step-patch/stargazers)
 
 <p align="center">
   <img src="docs/app-icon.png" alt="Step Patch App Icon" width="128">
@@ -12,7 +12,7 @@
 
 把你輸入的步數寫入 iPhone「健康」App（HealthKit）。
 
-開源專案：https://github.com/chouhsiang/step-editor
+開源專案：https://github.com/chouhsiang/step-patch
 
 <p align="center">
   <img src="docs/screenshot.png" alt="Step Patch App 介面" width="320">

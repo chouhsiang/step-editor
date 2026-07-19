@@ -25,7 +25,7 @@ struct AboutView: View {
                 }
 
                 Section {
-                    Link(destination: URL(string: "https://github.com/chouhsiang/step-editor")!) {
+                    Link(destination: URL(string: "https://github.com/chouhsiang/step-patch")!) {
                         Label("GitHub open source project", systemImage: "link")
                     }
                     Text("This open-source project uses the MIT License. See GitHub for source code and docs.")
