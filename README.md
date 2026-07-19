@@ -1,4 +1,4 @@
-# 步數編輯器（StepEditor）
+# Step Patch
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Platform](https://img.shields.io/badge/Platform-iOS-blue.svg)](https://www.apple.com/ios/)
@@ -7,7 +7,7 @@
 [![GitHub stars](https://img.shields.io/github/stars/chouhsiang/step-editor?style=social)](https://github.com/chouhsiang/step-editor/stargazers)
 
 <p align="center">
-  <img src="docs/app-icon.png" alt="步數編輯器 App Icon" width="128">
+  <img src="docs/app-icon.png" alt="Step Patch App Icon" width="128">
 </p>
 
 把你輸入的步數寫入 iPhone「健康」App（HealthKit）。
@@ -15,7 +15,7 @@
 開源專案：https://github.com/chouhsiang/step-editor
 
 <p align="center">
-  <img src="docs/screenshot.png" alt="步數編輯器 App 介面" width="320">
+  <img src="docs/screenshot.png" alt="Step Patch App 介面" width="320">
 </p>
 
 ## 功能
@@ -42,12 +42,12 @@
 
 1. 在 App 輸入步數（例如 `2000`）
 2. （可選）調整紀錄時間
-3. 按「同步到健康」
+3. 按「新增步數」
 4. 打開系統「健康」App → 瀏覽 → 活動能力 → 步數，即可看到新增紀錄（來源會顯示本 App）
 
 ## 若授權失敗
 
-到 iPhone：**設定 → 健康 → 資料取用與裝置 → 步數編輯器**，開啟步數的寫入權限。
+到 iPhone：**設定 → 健康 → 資料取用與裝置 → Step Patch**，開啟步數的寫入權限。
 
 ## 專案結構
 

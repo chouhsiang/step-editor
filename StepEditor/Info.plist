@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>NSHealthShareUsageDescription</key>
-	<string>需要讀取健康資料，以便確認步數寫入狀態。</string>
+	<string>Step Patch needs access to health data to confirm step entries were saved.</string>
 	<key>NSHealthUpdateUsageDescription</key>
-	<string>需要寫入步數到「健康」App，才能同步你輸入的步數。</string>
+	<string>Step Patch needs permission to write steps to the Health app.</string>
 	<key>UILaunchScreen</key>
 	<dict/>
 </dict>

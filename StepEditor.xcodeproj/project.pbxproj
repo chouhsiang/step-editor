@@ -9,8 +9,15 @@
 /* Begin PBXBuildFile section */
 		51DC48F36E724ACC957B0996 /* StepEditorApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3EC48099B35144E39EA7C0FE /* StepEditorApp.swift */; };
 		4A0FB1A606284ED3857F3AEB /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2B99092AD3D4DA5B57E9421 /* ContentView.swift */; };
+		B7C1D2E3F4A5467890ABCDEF1 /* StepsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1D2E3F4A5467890ABCDEF2 /* StepsView.swift */; };
+		B7C1D2E3F4A5467890ABCDEF3 /* AboutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7C1D2E3F4A5467890ABCDEF4 /* AboutView.swift */; };
+		D1E2F3A4B5C647890ABCDEF01 /* HistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C647890ABCDEF02 /* HistoryView.swift */; };
+		D1E2F3A4B5C647890ABCDEF03 /* DayDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D1E2F3A4B5C647890ABCDEF04 /* DayDetailView.swift */; };
+		E2F3A4B5C6D747890ABCDEF01 /* SampleDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2F3A4B5C6D747890ABCDEF02 /* SampleDetailView.swift */; };
 		A2EE9DEC72084428899FF7E2 /* HealthKitManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2291782B9F2C41B49A9D99A8 /* HealthKitManager.swift */; };
 		6E1F5E3EB126402C95D09045 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 08C61F3A506C4C3FA9D5ECFE /* Assets.xcassets */; };
+		C8D9E0F1A2B3456789ABCDEF1 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C8D9E0F1A2B3456789ABCDEF2 /* Localizable.xcstrings */; };
+		C8D9E0F1A2B3456789ABCDEF3 /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = C8D9E0F1A2B3456789ABCDEF4 /* InfoPlist.xcstrings */; };
 		397B5771740543D395C5D2A2 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F64415EAE5364DF6ABB833E1 /* HealthKit.framework */; };
 /* End PBXBuildFile section */
 
@@ -18,8 +25,15 @@
 		6EE61323BABE49068F75D2FD /* StepEditor.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StepEditor.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3EC48099B35144E39EA7C0FE /* StepEditorApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepEditorApp.swift; sourceTree = "<group>"; };
 		E2B99092AD3D4DA5B57E9421 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		B7C1D2E3F4A5467890ABCDEF2 /* StepsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StepsView.swift; sourceTree = "<group>"; };
+		B7C1D2E3F4A5467890ABCDEF4 /* AboutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutView.swift; sourceTree = "<group>"; };
+		D1E2F3A4B5C647890ABCDEF02 /* HistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryView.swift; sourceTree = "<group>"; };
+		D1E2F3A4B5C647890ABCDEF04 /* DayDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DayDetailView.swift; sourceTree = "<group>"; };
+		E2F3A4B5C6D747890ABCDEF02 /* SampleDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SampleDetailView.swift; sourceTree = "<group>"; };
 		2291782B9F2C41B49A9D99A8 /* HealthKitManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthKitManager.swift; sourceTree = "<group>"; };
 		08C61F3A506C4C3FA9D5ECFE /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C8D9E0F1A2B3456789ABCDEF2 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		C8D9E0F1A2B3456789ABCDEF4 /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		A98B55EB6E4C49938B792440 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5E1E5763751A4AE492B68D59 /* StepEditor.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = StepEditor.entitlements; sourceTree = "<group>"; };
 		F64415EAE5364DF6ABB833E1 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
@@ -51,7 +65,14 @@
 			children = (
 				3EC48099B35144E39EA7C0FE /* StepEditorApp.swift */,
 				E2B99092AD3D4DA5B57E9421 /* ContentView.swift */,
+				B7C1D2E3F4A5467890ABCDEF2 /* StepsView.swift */,
+				D1E2F3A4B5C647890ABCDEF02 /* HistoryView.swift */,
+				D1E2F3A4B5C647890ABCDEF04 /* DayDetailView.swift */,
+				E2F3A4B5C6D747890ABCDEF02 /* SampleDetailView.swift */,
+				B7C1D2E3F4A5467890ABCDEF4 /* AboutView.swift */,
 				2291782B9F2C41B49A9D99A8 /* HealthKitManager.swift */,
+				C8D9E0F1A2B3456789ABCDEF2 /* Localizable.xcstrings */,
+				C8D9E0F1A2B3456789ABCDEF4 /* InfoPlist.xcstrings */,
 				08C61F3A506C4C3FA9D5ECFE /* Assets.xcassets */,
 				A98B55EB6E4C49938B792440 /* Info.plist */,
 				5E1E5763751A4AE492B68D59 /* StepEditor.entitlements */,
@@ -112,7 +133,7 @@
 			};
 			buildConfigurationList = 5DE4890BA48D425AA783E80F /* Build configuration list for PBXProject "StepEditor" */;
 			compatibilityVersion = "Xcode 14.0";
-			developmentRegion = "zh-Hant";
+			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
@@ -135,6 +156,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				6E1F5E3EB126402C95D09045 /* Assets.xcassets in Resources */,
+				C8D9E0F1A2B3456789ABCDEF1 /* Localizable.xcstrings in Resources */,
+				C8D9E0F1A2B3456789ABCDEF3 /* InfoPlist.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -147,6 +170,11 @@
 			files = (
 				51DC48F36E724ACC957B0996 /* StepEditorApp.swift in Sources */,
 				4A0FB1A606284ED3857F3AEB /* ContentView.swift in Sources */,
+				B7C1D2E3F4A5467890ABCDEF1 /* StepsView.swift in Sources */,
+				D1E2F3A4B5C647890ABCDEF01 /* HistoryView.swift in Sources */,
+				D1E2F3A4B5C647890ABCDEF03 /* DayDetailView.swift in Sources */,
+				E2F3A4B5C6D747890ABCDEF01 /* SampleDetailView.swift in Sources */,
+				B7C1D2E3F4A5467890ABCDEF3 /* AboutView.swift in Sources */,
 				A2EE9DEC72084428899FF7E2 /* HealthKitManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -202,9 +230,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StepEditor/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "步數編輯器";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "需要讀取健康資料，以便確認步數寫入狀態。";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "需要寫入步數到「健康」App，才能同步你輸入的步數。";
+				INFOPLIST_KEY_CFBundleDisplayName = "Step Patch";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Step Patch needs access to health data to confirm step entries were saved.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Step Patch needs permission to write steps to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -236,9 +264,9 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = StepEditor/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "步數編輯器";
-				INFOPLIST_KEY_NSHealthShareUsageDescription = "需要讀取健康資料，以便確認步數寫入狀態。";
-				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "需要寫入步數到「健康」App，才能同步你輸入的步數。";
+				INFOPLIST_KEY_CFBundleDisplayName = "Step Patch";
+				INFOPLIST_KEY_NSHealthShareUsageDescription = "Step Patch needs access to health data to confirm step entries were saved.";
+				INFOPLIST_KEY_NSHealthUpdateUsageDescription = "Step Patch needs permission to write steps to the Health app.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
