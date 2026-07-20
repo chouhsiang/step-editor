@@ -1,11 +1,4 @@
-# Xcode
-*.xcuserstate
-**/xcuserdata/
-DerivedData/
-*.hmap
+build/
+*.xcarchive
 *.ipa
-*.dSYM.zip
-*.dSYM
-
-# macOS
 .DS_Store
